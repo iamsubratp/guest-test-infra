@@ -1,0 +1,7 @@
+steps:
+- name: 'gcr.io/cloud-builders/go'
+  args: ['install', './...']
+  env: ['PROJECT_ROOT=autoversioner']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/autoversioner', '.']
+images: ['gcr.io/$PROJECT_ID/autoversioner']
